@@ -1,0 +1,285 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+:root{
+    --index: calc(1vw + 1vh);
+}
+.no-scroll {
+    overflow: hidden;
+}
+body{
+    background-color: #F8F8FF;
+    font-family: "Ubuntu", sans-serif;
+    font-size: calc(var(--index) * 0.7);
+    overflow-x: hidden;
+}
+a{
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    font-size: calc(var(--index) * 0.9);
+}
+/* Хедер */
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* чтобы было поверх всего */
+    background-color: #F8F8FF; /* или другой цвет фона, чтобы скрывать содержимое под ним */
+}
+
+.container{
+    max-width: 1300px;
+    margin: 0 auto;
+}
+.header-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+.logo{
+    width: calc(var(--index) * 3);
+}
+.header-content ul{
+    display: flex;
+    list-style: none;
+}
+.header-content ul li{
+    margin-right: 20px;
+}
+.header-content ul li a{
+    display: inline-block;
+    transition: all .3s ease;
+}
+.header-content ul li a:hover{
+    transform: scale(1.05);
+    text-decoration: underline;
+}
+.header-content ul li:last-of-type{
+    margin-right: 0;
+}
+.profile_link{
+    background-color: aquamarine;
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 30px;
+    align-items: center;
+    transition: all .3s ease;
+}
+.profile_link:hover{
+    transform: scale(1.05);
+}
+.profile_link img{
+    margin-right: 10px;
+}
+.burger_icon{
+    display: block;
+    width: 30px;
+    height: 18px;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    display: none;
+}
+.burger_icon span{
+    background-color: #000000;
+    position: absolute;
+    top: calc(50% - 1px);
+    width: 100%;
+    height: 2px;
+}
+.burger_icon span:first-child{
+    top: 0;
+}
+.burger_icon span:last-child{
+    top: auto;
+    bottom: 0;
+}
+/* Изначально скрываем меню справа с помощью transform */
+.menu_burger {
+    top: 0;
+    right: 0;
+    width: 500px; /* ширина меню, можно изменить */
+    height: 1000px;
+    background-color: #d9f0ed;
+    transform: translateX(500px); /* скрыто за пределами справа */
+    transition: transform 0.3s ease-in-out;
+    z-index: 5; /* чтобы было поверх других элементов */
+    display: none;
+    position: fixed; /* чтобы оно было поверх контента */
+}
+
+/* Когда активировано, выдвигаем меню слева */
+.menu_burger.active {
+    transform: translateX(-1000px);
+}
+/* Meйн */
+.containers{
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: calc(var(--index) * 3);
+    margin-bottom: calc(var(--index) * 2);
+}
+.vanta_text{
+    text-transform: uppercase;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 500;
+    font-size: calc(var(--index) * 1.7);
+    line-height: calc(var(--index) * 3);
+    text-align: center;
+    text-shadow: 0 2px 0 0px hsl(330, 100%, 25%),
+             0 3px 2px 0px hsla(330, 100%, 15%, 0.5),
+             0 3px 0 3px hsl(350, 100%, 50%),
+             0 5px 0 3px hsl(350, 100%, 25%),
+             0 6px 2px 3px hsla(350, 100%, 15%, 0.5);
+}
+.container-plus{
+    margin-top: calc(var(--index) * 2);
+    width: 100%;
+    height: 90vh;
+    margin-bottom: calc(var(--index) * 2);
+}
+div{
+    border: 1px solid;
+}
+.plus{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+}
+.plus-elips{
+    position: relative;
+}
+.plus-elips1{
+    position: absolute;
+    top: 0;
+    right: 5%;
+    width: 40%;
+    height: 40%;
+    border-radius: 50%;
+    background-color: white;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+.plus-elips2{
+    position: absolute;
+    top: 20%;
+    left: 12%;
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    background-color: rgb(240, 167, 33);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+.plus-elips3{
+    position: absolute;
+    bottom: 5%;
+    right: 12%;
+    width: 30%;
+    height: 30%;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+span{
+    font-size: 20px;
+}
+.plus-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: calc(var(--index) * 1.5);
+}
+.image-slider__image{
+    text-align: center;
+    background-position: center;
+    background-size: cover;
+}
+.image-slider__image img{
+    max-width: 100%;
+}
+.swiper-container{
+    position: relative;
+    margin-top: calc(var(--index) * 2);
+
+}
+@media (max-width: 768px){
+    a{
+        font-size: calc(var(--index) * 0.8);
+    }
+    .header-content{
+        justify-content: space-between;
+    }
+    .header-content:first-child{
+        margin-left: 30px;
+    }
+    .header-content:last-child{
+        margin-right: 30px;
+    }
+    .profile_link{
+        display: none;
+    }
+    .burger_icon{
+        display: block;
+    }
+    .header-content ul{
+        display: none;
+    }
+    .menu_burger{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .menu_burger ul{
+        position: absolute;
+        top: 15%;
+        left: 40%;
+        display: inline-block
+    }
+    .menu_burger ul li{
+        text-align: center;
+        margin: 0;
+        margin-bottom: 40px;
+    }
+    /* Мейн */
+    .containers{
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0;
+}
+.vanta_text{
+    width: 80%;
+}
+.plus{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+}
